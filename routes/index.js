@@ -6,7 +6,6 @@ const homeController = require('../controllers/home_controller');  // for connec
 
 
 
-
 //calling home controller for homepage
 router.get('/', homeController.home);
 

@@ -1,11 +1,24 @@
 const express = require('express')    //npm install express
 const app = express()
 const port = 8000
+const sassMiddleware = require('node-sass-middleware'); // for using css with help of scss
 
 
 
+//setting up scss middleware for css
+app.use(sassMiddleware({
+  /* Options */
+  src: './assets/scss',
+  dest: './assets/css',
+  debug: true,
+  outputStyle: 'extended',
+  prefix: '/css'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+}));
 
 
+// set up the view engine using npm install ejs
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
 
 
