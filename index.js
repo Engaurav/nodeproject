@@ -3,6 +3,7 @@ const express = require('express')    //npm install express
 const expressLayouts = require('express-ejs-layouts');
 const app = express()
 const port = 8000
+const db = require('./config/mongoose')   //configure mongoose for database in config folder
 const sassMiddleware = require('node-sass-middleware'); // for using css with help of scss
 
 
