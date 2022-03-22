@@ -1,4 +1,6 @@
 const express = require('express')    //npm install express
+
+const expressLayouts = require('express-ejs-layouts');
 const app = express()
 const port = 8000
 const sassMiddleware = require('node-sass-middleware'); // for using css with help of scss
@@ -16,9 +18,23 @@ app.use(sassMiddleware({
 }));
 
 
+
+
+// connect static directory
+app.use(express.static('./assets'));
+
+// expess layout npm install express-ejs-layouts)
+app.use(expressLayouts);
+
+//extract style and script from webpages into the layout
+app.set('layout extractStyles',true)  //  add <%- style %> in layout
+app.set('layout extractScripts',true) //add  <%- script %> in layout
+
+
 // set up the view engine using npm install ejs
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
 
 
 
